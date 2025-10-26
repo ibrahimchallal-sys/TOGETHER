@@ -64,7 +64,7 @@
   position: relative;
   overflow: hidden;
   min-height: 280px;
-  margin-right: 50px;
+  margin-right: px;
 }
 
 .service-card::before {
