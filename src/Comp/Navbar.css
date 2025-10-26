@@ -1,0 +1,163 @@
+.navbar {
+  background-color: white;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  transition: all 0.3s ease;
+  left: 0;
+  right: 0;
+  min-height: 70px;
+}
+
+.navbar-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 70px;
+}
+
+.navbar-logo .logo {
+  height: 60px;
+  transition: transform 0.3s ease;
+}
+
+.navbar-logo .logo:hover {
+  transform: scale(1.05);
+}
+
+.navbar-menu {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar-item {
+  margin: 0 15px;
+  position: relative;
+  opacity: 0;
+  animation: fadeInDown 0.5s ease forwards;
+}
+
+.navbar-item:nth-child(1) { animation-delay: 0.2s; }
+.navbar-item:nth-child(2) { animation-delay: 0.3s; }
+.navbar-item:nth-child(3) { animation-delay: 0.4s; }
+.navbar-item:nth-child(4) { animation-delay: 0.5s; }
+
+.navbar-link {
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+  font-size: 16px;
+  padding: 10px 0;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.navbar-link:hover {
+  color: #636CCB;
+}
+
+.navbar-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: #636CCB;
+  transition: width 0.3s ease;
+}
+
+.navbar-link:hover::after {
+  width: 100%;
+}
+
+/* Animation for navbar items on hover */
+.navbar-item:hover {
+  transform: translateY(-2px);
+}
+
+/* Buttons container */
+.navbar-buttons {
+  display: flex;
+  gap: 15px;
+}
+
+/* Button styles */
+.btn {
+  padding: 10px 20px;
+  border-radius: 4px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: none;
+  font-size: 14px;
+}
+
+.login-btn {
+  background-color: transparent;
+  color: #333;
+  border: 1px solid #ddd;
+}
+
+.login-btn:hover {
+  background-color: #f5f5f5;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.signup-btn {
+  background-color: #2c37ae;
+  color: white;
+  border: 1px solid #636CCB;
+}
+
+.signup-btn:hover {
+  background-color: #5058a0;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(99, 108, 203, 0.3);
+}
+
+/* Fade in down animation */
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .navbar-container {
+    flex-direction: column;
+    height: auto;
+    padding: 10px 20px;
+  }
+  
+  .navbar-menu {
+    margin: 10px 0;
+  }
+  
+  .navbar-item {
+    margin: 0 10px;
+  }
+  
+  .navbar-buttons {
+    margin: 10px 0;
+  }
+  
+  /* Adjust logo size for mobile */
+  .navbar-logo .logo {
+    height: 40px;
+  }
+}
