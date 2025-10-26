@@ -1,6 +1,11 @@
 import { useState } from 'react';
 import Navbar from './Comp/Navbar.jsx';
 import AnimatedBackground from './Comp/AnimatedBackground.jsx';
+import PopularServices from './Comp/PopularServices.jsx';
+import Whysec from './Comp/Whysec.jsx';
+import CTASection from './Comp/CTASection.jsx';
+import Footer from './Comp/Footer.jsx';
+
 import './App.css';
 
 function App() {
@@ -9,11 +14,21 @@ function App() {
   return (
     <>
       <Navbar />
-      <div style={{ position: 'relative' }}>
-        <div style={{ marginLeft: '-50vw', left: '50%', position: 'relative', width: '100vw' }}>
+      <div style={{ position: 'relative', width: '100%' }}>
+        <section id="home">
           <AnimatedBackground />
-        </div>
+        </section>
+        <section id="services">
+          <PopularServices />
+        </section>
+        <section id="features">
+          <Whysec />
+        </section>
+        <section id="cta">
+          <CTASection />
+        </section>
       </div>
+      <Footer />
     </>
   );
 }

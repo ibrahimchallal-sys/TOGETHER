@@ -4,16 +4,22 @@ import './AnimatedBackground.css';
 const AnimatedBackground = () => {
   return (
     <div className="animated-header">
-      <h1 className="animated-text">Welcome to <span className='highlight'>TOGETHER</span></h1>
-      <label htmlFor="search-bar" className="search-label">Search :</label>
-      <div className="search-container">
-        <input 
-          type="text" 
-          id="search-bar"
-          className="search-bar" 
-          placeholder="ex: web development"
-        />
-        <button type="submit" className="search-button">Search</button>
+      <div className="hero-content">
+        <h1 className="hero-title">
+          Welcome to <span className='highlight'>Together</span>
+        </h1>
+        <p className="hero-subtitle">
+          Join thousands of creators and entrepreneurs selling digital products, courses, and services on the world's leading marketplace
+        </p>
+        <div className="search-container">
+          <input 
+            type="text" 
+            id="search-bar"
+            className="search-bar" 
+            placeholder="Search for services, products, or skills..."
+          />
+          <button type="submit" className="search-button">Search</button>
+        </div>
       </div>
       <div className="particle particle-1"></div>
       <div className="particle particle-2"></div>
