@@ -1,17 +1,8 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './Navbar.css';
 
 const Navbar = () => {
-  const scrollToSection = (sectionId) => {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      element.scrollIntoView({
-        behavior: 'smooth',
-        block: 'start'
-      });
-    }
-  };
-
   return (
     <nav className="navbar">
       <div className="navbar-container">
@@ -20,16 +11,16 @@ const Navbar = () => {
         </div>
         <ul className="navbar-menu">
           <li className="navbar-item">
-            <button onClick={() => scrollToSection('home')} className="navbar-link">Home</button>
+            <Link to="/" className="navbar-link">Home</Link>
           </li>
           <li className="navbar-item">
-            <button onClick={() => scrollToSection('services')} className="navbar-link">Services</button>
+            <Link to="/services" className="navbar-link">Services</Link>
           </li>
           <li className="navbar-item">
-            <button onClick={() => scrollToSection('features')} className="navbar-link">Features</button>
+            <Link to="/features" className="navbar-link">Features</Link>
           </li>
           <li className="navbar-item">
-            <button onClick={() => scrollToSection('cta')} className="navbar-link">Get Started</button>
+            <Link to="/contact" className="navbar-link">Contact</Link>
           </li>
         </ul>
         <div className="navbar-buttons">
