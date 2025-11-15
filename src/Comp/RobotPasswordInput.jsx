@@ -2,8 +2,30 @@ import React, { useState } from 'react';
 import { Eye, EyeOff } from 'lucide-react';
 import './RobotPasswordInput.css';
 
-const RobotPasswordInput = ({ value, onChange, id, required, confirmPassword, confirmPasswordValue, showRobotOnly }) => {
-  const [showPassword, setShowPassword] = useState(false);
+const RobotPasswordInput = ({ 
+  value, 
+  onChange, 
+  id, 
+  required, 
+  confirmPassword, 
+  confirmPasswordValue, 
+  showRobotOnly,
+  showPassword: controlledShowPassword,
+  onTogglePassword
+}) => {
+  // Use controlled state if provided, otherwise use internal state
+  const isControlled = controlledShowPassword !== undefined;
+  const [internalShowPassword, setInternalShowPassword] = useState(false);
+  
+  const showPassword = isControlled ? controlledShowPassword : internalShowPassword;
+  
+  const handleTogglePassword = () => {
+    if (isControlled && onTogglePassword) {
+      onTogglePassword();
+    } else {
+      setInternalShowPassword(prev => !prev);
+    }
+  };
 
   const handleInputChange = (e) => {
     // Call the original onChange handler
@@ -117,7 +139,7 @@ const RobotPasswordInput = ({ value, onChange, id, required, confirmPassword, co
 
       <button
         type="button"
-        onClick={() => setShowPassword(!showPassword)}
+        onClick={handleTogglePassword}
         className="password-toggle"
       >
         {showPassword ? (

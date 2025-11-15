@@ -11,6 +11,8 @@ const AuthForm = ({ isLogin }) => {
     name: ''
   });
   
+  const [showPassword, setShowPassword] = useState(false);
+  
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -40,6 +42,10 @@ const AuthForm = ({ isLogin }) => {
     navigate(isLogin ? '/signup' : '/login');
   };
 
+  const handlePasswordToggle = () => {
+    setShowPassword(prev => !prev);
+  };
+
   return (
     <div className="auth-overlay" onClick={handleClose}>
       <div className="auth-container floating-animation">
@@ -61,6 +67,7 @@ const AuthForm = ({ isLogin }) => {
                 onChange={() => {}}
                 required={false}
                 showRobotOnly={true}
+                showPassword={showPassword}
               />
             </div>
           )}
@@ -101,7 +108,9 @@ const AuthForm = ({ isLogin }) => {
                 value={formData.password}
                 onChange={handleChange}
                 required
-                showRobotOnly={false} // This will show the password input but not display the robot again
+                showRobotOnly={false}
+                showPassword={showPassword}
+                onTogglePassword={handlePasswordToggle}
               />
             ) : (
               // For signup, use regular password input without robot
