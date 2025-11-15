@@ -1,0 +1,282 @@
+.auth-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2000;
+  backdrop-filter: blur(5px);
+  animation: fadeIn 0.5s ease-out;
+}
+
+.auth-container {
+  background: linear-gradient(135deg, #ffffff, #f8f9ff);
+  border-radius: 20px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+  padding: 20px;
+  width: 100%;
+  max-width: 350px;
+  position: relative;
+  overflow: hidden;
+  transform: translateY(0);
+  transition: all 0.4s ease;
+}
+
+.auth-container::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(99, 108, 203, 0.1) 0%, transparent 70%);
+  z-index: -1;
+  animation: rotate 10s linear infinite;
+}
+
+.auth-close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 1.5rem;
+  font-weight: 300;
+  color: #999;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  width: 25px;
+  height: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+}
+
+.auth-close:hover {
+  background-color: #f0f0f0;
+  color: #333;
+  transform: rotate(90deg);
+}
+
+.auth-header {
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+.auth-header h2 {
+  color: #2c37ae;
+  font-size: 1.5rem;
+  margin-bottom: 5px;
+  font-weight: 700;
+}
+
+.auth-header p {
+  color: #666;
+  font-size: 0.9rem;
+}
+
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.form-group {
+  position: relative;
+  margin-bottom: 15px;
+}
+
+.auth-label {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  font-weight: 600;
+  color: #aaa;
+  font-size: 0.85rem;
+  transition: all 0.3s ease;
+  pointer-events: none;
+  padding: 0 5px;
+  z-index: 1;
+}
+
+.auth-input {
+  width: 100%;
+  padding: 16px 40px 6px 14px;
+  border: 2px solid #e1e5f2;
+  border-radius: 12px;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+  background: #fff;
+  box-sizing: border-box;
+  position: relative;
+}
+
+.auth-input:focus + .auth-label,
+.auth-input:not(:empty) + .auth-label,
+.auth-input:-webkit-autofill + .auth-label,
+.auth-input[value]:not([value='']) + .auth-label {
+  transform: translateY(-30px);
+  font-size: 0.7rem;
+  color: #636CCB;
+}
+
+.auth-input:focus {
+  outline: none;
+  border-color: #636CCB;
+  box-shadow: 0 0 0 3px rgba(99, 108, 203, 0.2);
+  transform: translateY(-2px);
+}
+
+.auth-input::placeholder {
+  color: #aaa;
+}
+
+.auth-button {
+  background: linear-gradient(135deg, #2c37ae, #636CCB);
+  color: white;
+  border: none;
+  border-radius: 12px;
+  padding: 12px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(44, 55, 174, 0.3);
+  margin-top: 5px;
+}
+
+.auth-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 7px 20px rgba(44, 55, 174, 0.4);
+  background: linear-gradient(135deg, #636CCB, #2c37ae);
+}
+
+.auth-button:active {
+  transform: translateY(-1px);
+  box-shadow: 0 3px 10px rgba(44, 55, 174, 0.3);
+}
+
+.auth-footer {
+  text-align: center;
+  margin-top: 15px;
+  color: #000; /* Make the "Don't have an account?" text black */
+  font-size: 0.9rem;
+}
+
+.auth-link {
+  color: #000; /* Make the "Sign Up" link black */
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.auth-link:hover {
+  text-decoration: underline;
+  color: #333; /* Slightly darker black on hover */
+}
+
+.floating-animation {
+  animation: floatIn 0.6s ease-out;
+}
+
+.floating-element {
+  animation: floatUp 0.5s ease-out forwards;
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.floating-element:nth-child(1) { animation-delay: 0.1s; }
+.floating-element:nth-child(2) { animation-delay: 0.2s; }
+.floating-element:nth-child(3) { animation-delay: 0.3s; }
+.floating-element:nth-child(4) { animation-delay: 0.4s; }
+
+/* Robot above email input */
+.robot-above-email {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 12px;
+}
+
+.robot-above-email .robot-password-container {
+  background: none;
+  box-shadow: none;
+  padding: 0;
+  max-width: none;
+}
+
+.robot-above-email .robot-head-container {
+  margin-bottom: 6px;
+}
+
+.robot-above-email .robot-status {
+  font-size: 0.8rem;
+  margin-top: 6px;
+}
+
+/* Password input wrapper for signup form */
+.password-input-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes floatIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.8) translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+@keyframes floatUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes rotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* Responsive design */
+@media (max-width: 576px) {
+  .auth-container {
+    margin: 10px;
+    padding: 15px;
+    max-width: calc(100% - 20px);
+  }
+  
+  .auth-header h2 {
+    font-size: 1.4rem;
+  }
+  
+  .auth-input {
+    padding: 15px 12px 5px 12px;
+  }
+  
+  .auth-button {
+    padding: 10px;
+    font-size: 0.9rem;
+  }
+  
+  .auth-close {
+    top: 8px;
+    right: 8px;
+    font-size: 1.3rem;
+    width: 22px;
+    height: 22px;
+  }
+}

@@ -7,6 +7,8 @@ import PopularServices from './Comp/PopularServices.jsx';
 import CTASection from './Comp/CTASection.jsx';
 import Footer from './Comp/Footer.jsx';
 import Services from './Comp/Services.jsx';
+import Login from './Comp/Login.jsx';
+import Signup from './Comp/Signup.jsx';
 
 import './App.css';
 
@@ -38,9 +40,15 @@ function App() {
             }}>
               <CTASection />
             </div>
+            <Footer />
           </div>
         } />
-        <Route path="/services" element={<Services />} />
+        <Route path="/services" element={
+          <div>
+            <Services />
+            <Footer />
+          </div>
+        } />
         <Route path="/features" element={
           <div style={{ marginTop: '70px', padding: '20px' }}>
             <h1>Features</h1>
@@ -53,8 +61,9 @@ function App() {
             <p>This is the contact page.</p>
           </div>
         } />
+        <Route path="/login" element={<Login />} />
+        <Route path="/signup" element={<Signup />} />
       </Routes>
-      <Footer />
     </>
   );
 }
