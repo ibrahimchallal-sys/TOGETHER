@@ -8,7 +8,7 @@ const AnimatedBackground = () => {
     <div className="animated-header">
       <div className="hero-content">
         <h1 className="hero-title">
-          Welcome to <span className='highlight'><img height={150} width={390} src={LOGO}/></span>
+          Welcome to <span className='highlight'><img className='logo-image' height={150} width={390} src={LOGO}/></span>
         </h1>
         <p className="hero-subtitle">
           Join thousands of creators and entrepreneurs selling digital products, courses, and services on the world's leading marketplace

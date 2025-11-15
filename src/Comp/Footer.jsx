@@ -21,7 +21,7 @@ const Footer = () => {
         <div className="footer-content">
           <div className="footer-section fade-in">
             <div className="footer-logo">
-              <img src="/logo.png" alt="TOGETHER Logo" className="logo" />
+              <img src="/logo2.png" alt="TOGETHER Logo" className="logo" />
             </div>
             <p>Your premier destination for digital products and services. Connect with creators and entrepreneurs worldwide.</p>
           </div>

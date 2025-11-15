@@ -117,7 +117,9 @@ const Services = () => {
         <div className="cta-content">
           <h2>Ready to Transform Your Business?</h2>
           <p>Contact us today to discuss how our services can help you achieve your goals and accelerate your growth.</p>
-          <button className="btn btn-primary btn-large">Start Now</button>
+          <div className="cta-buttons">
+            <button className="btn btn-primary btn-large">Start Now</button>
+          </div>
         </div>
       </div>
     </div>

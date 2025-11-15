@@ -306,9 +306,9 @@
 
 .cta-buttons {
   display: flex;
-  gap: 20px;
-  width: 300px;
-  margin-left: 249px;
+  justify-content: center;
+  width: 100%;
+  margin: 0 auto;
 }
 
 .btn-large {
