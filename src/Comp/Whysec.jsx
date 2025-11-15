@@ -4,7 +4,6 @@ import useScrollAnimation from '../hooks/useScrollAnimation';
 
 const Whysec = () => {
     useScrollAnimation();
-    // Updated features for digital marketplace
     const features = [
         {
             id: 1,

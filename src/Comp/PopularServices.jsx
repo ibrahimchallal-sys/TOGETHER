@@ -69,7 +69,7 @@ const PopularServices = () => {
           <p>Discover the most in-demand digital services and products</p>
         </div>
         
-        <div className="services-grid">
+        <div style={{ marginBottom: '50px' }} className="services-grid">
           {services.map((service, index) => (
             <div key={service.id} className={`service-card scale-in stagger-${index + 1}`}>
               <div className="service-icon">

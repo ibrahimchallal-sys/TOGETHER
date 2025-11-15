@@ -64,7 +64,7 @@
   position: relative;
   overflow: hidden;
   min-height: 280px;
-  margin-right: px;
+  margin-right:30px;
 }
 
 .service-card::before {
@@ -170,7 +170,6 @@
   background: linear-gradient(135deg, #0e46a3, #3674ff);
 }
 
-/* Responsive Design */
 @media (max-width: 768px) {
   .popular-services {
     padding: 60px 0;

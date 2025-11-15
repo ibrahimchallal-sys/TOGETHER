@@ -38,15 +38,9 @@ function App() {
             }}>
               <CTASection />
             </div>
-            <Footer />
           </div>
         } />
-        <Route path="/services" element={
-          <div>
-            <Services />
-            <Footer />
-          </div>
-        } />
+        <Route path="/services" element={<Services />} />
         <Route path="/features" element={
           <div style={{ marginTop: '70px', padding: '20px' }}>
             <h1>Features</h1>
@@ -60,6 +54,7 @@ function App() {
           </div>
         } />
       </Routes>
+      <Footer />
     </>
   );
 }

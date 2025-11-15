@@ -21,9 +21,8 @@ const CTASection = () => {
         <div className="cta-content">
           <h2 className="fade-in">Ready to Start Selling?</h2>
           <p className="fade-in">Join thousands of successful sellers and start your digital business today. No setup fees, no monthly costs - just start selling and earning.</p>
-          <div className="cta-buttons fade-in">
-            <button className="cta-primary">Start Selling Now</button>
-            <button className="cta-secondary">Learn More</button>
+          <div className="cta-buttons-container">
+            <button className="btn btn-primary">Start Selling Now</button>
           </div>
           <div className="cta-features">
             <div className="cta-feature fade-in stagger-1">

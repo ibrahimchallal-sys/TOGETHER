@@ -19,8 +19,6 @@ const useScrollAnimation = () => {
     );
 
     observerRef.current = observer;
-
-    // Use setTimeout to ensure DOM is ready
     setTimeout(() => {
       const animatedElements = document.querySelectorAll(
         '.fade-in, .slide-in-left, .slide-in-right, .scale-in'
