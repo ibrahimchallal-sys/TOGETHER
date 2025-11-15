@@ -1,6 +1,7 @@
 import React from 'react';
 import './AnimatedBackground.css';
-import LOGO from './logo.png';
+import LOGO from './/logo.png';
+
 
 const AnimatedBackground = () => {
   return (
