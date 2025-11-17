@@ -4,6 +4,7 @@ import Navbar from './Comp/Navbar.jsx';
 import AnimatedBackground from './Comp/AnimatedBackground.jsx';
 import Whysec from './Comp/Whysec.jsx';
 import PopularServices from './Comp/PopularServices.jsx';
+import ActionSelector from './Comp/ActionSelector.jsx';
 import CTASection from './Comp/CTASection.jsx';
 import Footer from './Comp/Footer.jsx';
 import Services from './Comp/Services.jsx';
@@ -16,54 +17,66 @@ function App() {
   return (
     <>
       <Navbar />
-      <Routes>
-        <Route path="/" element={
-          <div style={{ position: 'relative' }}>
-            <div style={{ marginLeft: '-50vw', left: '50%', position: 'relative', width: '100vw' }}>
-              <AnimatedBackground />
+      <div>
+        <Routes>
+          <Route path="/" element={
+            <div style={{ position: 'relative' }}>
+              <div style={{ marginLeft: '-50vw', left: '50%', position: 'relative', width: '100vw' }}>
+                <AnimatedBackground />
+              </div>
+              <div style={{ 
+                width: '100%',
+              }}>
+                <Whysec />
+              </div>
+              <div style={{ 
+                width: '100%',
+              }}>
+                <PopularServices />
+              </div>
+              <div style={{ 
+                width: '100%',
+              }}>
+                <ActionSelector />
+              </div>
+              <div style={{ 
+                width: '100%',
+              }}>
+                <CTASection />
+              </div>
+              <Footer />
             </div>
-            <div style={{ 
-              width: '100%',
-              
-            }}>
-              <Whysec />
+          } />
+          <Route path="/services" element={
+            <div>
+              <Services />
+              <Footer />
             </div>
-            <div style={{ 
-              width: '100%',
-              
-            }}>
-              <PopularServices />
+          } />
+          <Route path="/features" element={
+            <div style={{ padding: '20px' }}>
+              <h1>Features</h1>
+              <p>This is the features page.</p>
             </div>
-            <div style={{ 
-              width: '100%',
-              
-            }}>
-              <CTASection />
+          } />
+          <Route path="/contact" element={
+            <div style={{ padding: '20px' }}>
+              <h1>Contact Us</h1>
+              <p>This is the contact page.</p>
             </div>
-            <Footer />
-          </div>
-        } />
-        <Route path="/services" element={
-          <div>
-            <Services />
-            <Footer />
-          </div>
-        } />
-        <Route path="/features" element={
-          <div style={{ marginTop: '70px', padding: '20px' }}>
-            <h1>Features</h1>
-            <p>This is the features page.</p>
-          </div>
-        } />
-        <Route path="/contact" element={
-          <div style={{ marginTop: '70px', padding: '20px' }}>
-            <h1>Contact Us</h1>
-            <p>This is the contact page.</p>
-          </div>
-        } />
-        <Route path="/login" element={<Login />} />
-        <Route path="/signup" element={<Signup />} />
-      </Routes>
+          } />
+          <Route path="/login" element={
+            <div>
+              <Login />
+            </div>
+          } />
+          <Route path="/signup" element={
+            <div>
+              <Signup />
+            </div>
+          } />
+        </Routes>
+      </div>
     </>
   );
 }

@@ -40,29 +40,44 @@ const CTASection = () => {
           </div>
         </div>
         <div className="cta-visual">
-          <div className="floating-card card-1 scale-in stagger-1">
-            <div className="card-icon">
-              <i className="fas fa-laptop-code"></i>
+          <div className="service-cards">
+            <div className="cta-service-card card-1 scale-in stagger-1">
+              <div className="cta-card-icon">
+                <i className="fas fa-laptop-code"></i>
+              </div>
+              <div className="cta-card-text">Web Design</div>
             </div>
-            <div className="card-text">Web Design</div>
-          </div>
-          <div className="floating-card card-2 scale-in stagger-2">
-            <div className="card-icon">
-              <i className="fas fa-mobile-alt"></i>
+            <div className="cta-service-card card-2 scale-in stagger-2">
+              <div className="cta-card-icon">
+                <i className="fas fa-mobile-alt"></i>
+              </div>
+              <div className="cta-card-text">Mobile App</div>
             </div>
-            <div className="card-text">Mobile App</div>
-          </div>
-          <div className="floating-card card-3 scale-in stagger-3">
-            <div className="card-icon">
-              <i className="fas fa-paint-brush"></i>
+            <div className="cta-service-card card-3 scale-in stagger-3">
+              <div className="cta-card-icon">
+                <i className="fas fa-paint-brush"></i>
+              </div>
+              <div className="cta-card-text">Graphic Design</div>
             </div>
-            <div className="card-text">Graphic Design</div>
-          </div>
-          <div className="floating-card card-4 scale-in stagger-4">
-            <div className="card-icon">
-              <i className="fas fa-edit"></i>
+            <div className="cta-service-card card-4 scale-in stagger-4">
+              <div className="cta-card-icon">
+                <i className="fas fa-edit"></i>
+              </div>
+              <div className="cta-card-text">Content Writing</div>
             </div>
-            <div className="card-text">Content Writing</div>
+            {/* Added cards from "What do you want to do?" section */}
+            <div className="cta-service-card card-5 scale-in stagger-5">
+              <div className="cta-card-icon">
+                <i className="fas fa-search"></i>
+              </div>
+              <div className="cta-card-text">Find Service</div>
+            </div>
+            <div className="cta-service-card card-6 scale-in stagger-6">
+              <div className="cta-card-icon">
+                <i className="fas fa-plus-circle"></i>
+              </div>
+              <div className="cta-card-text">Post Service</div>
+            </div>
           </div>
         </div>
       </div>

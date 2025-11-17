@@ -1,9 +1,12 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState, useCallback } from 'react';
 import './PopularServices.css';
 import useScrollAnimation from '../hooks/useScrollAnimation';
 
 const PopularServices = () => {
   useScrollAnimation();
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [itemsPerSlide, setItemsPerSlide] = useState(3);
+  
   const services = [
     {
       id: 1,
@@ -61,6 +64,45 @@ const PopularServices = () => {
     }
   ];
 
+  // Update items per slide based on screen size
+  const updateItemsPerSlide = useCallback(() => {
+    if (window.innerWidth < 768) {
+      setItemsPerSlide(1);
+    } else if (window.innerWidth < 1024) {
+      setItemsPerSlide(2);
+    } else {
+      setItemsPerSlide(3);
+    }
+  }, []);
+
+  useEffect(() => {
+    updateItemsPerSlide();
+    window.addEventListener('resize', updateItemsPerSlide);
+    return () => window.removeEventListener('resize', updateItemsPerSlide);
+  }, [updateItemsPerSlide]);
+
+  // Calculate total slides
+  const totalSlides = Math.ceil(services.length / itemsPerSlide);
+
+  // Function to go to next slide
+  const nextSlide = () => {
+    if (currentIndex < totalSlides - 1) {
+      setCurrentIndex(prevIndex => prevIndex + 1);
+    }
+  };
+
+  // Function to go to previous slide
+  const prevSlide = () => {
+    if (currentIndex > 0) {
+      setCurrentIndex(prevIndex => prevIndex - 1);
+    }
+  };
+
+  // Function to go to a specific slide
+  const goToSlide = (index) => {
+    setCurrentIndex(index);
+  };
+
   return (
     <section className="popular-services">
       <div className="container">
@@ -69,25 +111,71 @@ const PopularServices = () => {
           <p>Discover the most in-demand digital services and products</p>
         </div>
         
-        <div style={{ marginBottom: '50px' }} className="services-grid">
-          {services.map((service, index) => (
-            <div key={service.id} className={`service-card scale-in stagger-${index + 1}`}>
-              <div className="service-icon">
-                <i className={service.icon}></i>
-              </div>
-              <h3 className="service-title">{service.title}</h3>
-              <p className="service-description">{service.description}</p>
-              <div className="service-price">{service.price}</div>
-              <div className="service-stats">
-                <div className="rating">
-                  <span className="stars"><i id='star' class="fa-solid fa-star"></i></span>
-                  <span>{service.rating}</span>
-                </div>
-                <div className="orders">{service.orders}</div>
-              </div>
-              <button className="service-btn">View Services</button>
+        <div className="carousel-container">
+          <div className="carousel-wrapper">
+            <div 
+              className="carousel-slide" 
+              style={{ transform: `translateX(-${currentIndex * 100}%)` }}
+            >
+              {Array.from({ length: totalSlides }).map((_, slideIndex) => {
+                const startIndex = slideIndex * itemsPerSlide;
+                const endIndex = startIndex + itemsPerSlide;
+                const slideServices = services.slice(startIndex, endIndex);
+                
+                return (
+                  <div key={slideIndex} className="carousel-item">
+                    <div className="services-grid">
+                      {slideServices.map((service) => (
+                        <div key={service.id} className="service-card scale-in stagger-1">
+                          <div className="service-icon">
+                            <i className={service.icon}></i>
+                          </div>
+                          <h3 className="service-title">{service.title}</h3>
+                          <p className="service-description">{service.description}</p>
+                          <div className="service-price">{service.price}</div>
+                          <div className="service-stats">
+                            <div className="rating">
+                              <span className="stars"><i id='star' className="fa-solid fa-star"></i></span>
+                              <span>{service.rating}</span>
+                            </div>
+                            <div className="orders">{service.orders}</div>
+                          </div>
+                          <button className="service-btn">View Services</button>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                );
+              })}
             </div>
-          ))}
+          </div>
+          
+          {/* Navigation Arrows */}
+          <button 
+            className={`carousel-arrow carousel-arrow-prev ${currentIndex === 0 ? 'disabled' : ''}`} 
+            onClick={prevSlide}
+            disabled={currentIndex === 0}
+          >
+            &#10094;
+          </button>
+          <button 
+            className={`carousel-arrow carousel-arrow-next ${currentIndex === totalSlides - 1 ? 'disabled' : ''}`} 
+            onClick={nextSlide}
+            disabled={currentIndex === totalSlides - 1}
+          >
+            &#10095;
+          </button>
+          
+          {/* Dots Indicator */}
+          <div className="carousel-dots">
+            {Array.from({ length: totalSlides }).map((_, index) => (
+              <span 
+                key={index} 
+                className={`dot ${index === currentIndex ? 'active' : ''}`}
+                onClick={() => goToSlide(index)}
+              ></span>
+            ))}
+          </div>
         </div>
       </div>
     </section>

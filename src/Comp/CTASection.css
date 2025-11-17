@@ -199,8 +199,6 @@
   box-shadow: 0 6px 20px rgba(33, 150, 243, 0.4);
 }
 
-
-
 .cta-features {
   display: flex;
   gap: 30px;
@@ -235,39 +233,42 @@
   justify-content: center;
 }
 
-.floating-card {
-  position: absolute;
+/* Service Cards Container */
+.service-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  width: 100%;
+  max-width: 400px;
+}
+
+/* Static Service Cards - CTA specific styling */
+.cta-service-card {
   background: white;
   border-radius: 15px;
   padding: 20px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
   transition: all 0.4s ease;
-  animation: float 6s ease-in-out infinite;
   cursor: pointer;
   overflow: hidden;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100px;
+  height: 100px;
+  min-width: 100px;
+  min-height: 100px;
 }
 
-.floating-card::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(14, 70, 163, 0.1), transparent);
-  transition: left 0.6s ease;
-}
-
-.floating-card:hover::before {
-  left: 100%;
-}
-
-.floating-card:hover {
+.cta-service-card:hover {
   transform: translateY(-8px);
   box-shadow: 0 15px 35px rgba(14, 70, 163, 0.2);
 }
 
-.card-icon {
+/* CTA specific icon styling */
+.cta-card-icon {
   font-size: 2rem;
   margin-bottom: 10px;
   display: block;
@@ -278,7 +279,12 @@
   color: #000000;
 }
 
-.card-text {
+.cta-service-card:hover .cta-card-icon {
+  transform: rotate(5deg);
+}
+
+/* CTA specific text styling */
+.cta-card-text {
   font-size: 0.9rem;
   font-weight: 600;
   color: #2c3e50;
@@ -286,47 +292,7 @@
   transition: all 0.4s ease;
   position: relative;
   z-index: 2;
-}
-
-.floating-card:hover .card-icon {
-  transform: rotate(5deg);
-}
-
-.floating-card:hover .card-text {
-  transform: translateX(3px);
-}
-
-.card-1 {
-  top: 20%;
-  left: 5%;
-  animation-delay: 0s;
-}
-
-.card-2 {
-  top: 10%;
-  right: 20%;
-  animation-delay: 1.5s;
-}
-
-.card-3 {
-  bottom: 30%;
-  left: 25%;
-  animation-delay: 3s;
-}
-
-.card-4 {
-  bottom: 20%;
-  right: 10%;
-  animation-delay: 4.5s;
-}
-
-@keyframes float {
-  0%, 100% {
-    transform: translateY(0px);
-  }
-  50% {
-    transform: translateY(-20px);
-  }
+  display: block;
 }
 
 /* Responsive Design */
@@ -353,15 +319,30 @@
     height: 300px;
   }
   
-  .floating-card {
+  .service-cards {
+    max-width: 100%;
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .cta-service-card {
+    width: 80px;
+    height: 80px;
+    min-width: 80px;
+    min-height: 80px;
     padding: 15px;
   }
   
-  .card-icon {
+  .cta-card-icon {
     font-size: 1.5rem;
   }
   
-  .card-text {
+  .cta-card-text {
     font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .service-cards {
+    grid-template-columns: 1fr;
   }
 }
