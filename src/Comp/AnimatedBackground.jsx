@@ -1,9 +1,32 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import './AnimatedBackground.css';
 import LOGO from './/logo.png';
 
-
 const AnimatedBackground = () => {
+  // Create state for particles
+  const [particles, setParticles] = useState([]);
+
+  // Initialize particles on component mount
+  useEffect(() => {
+    const initialParticles = [];
+    for (let i = 0; i < 25; i++) { // Increased to 25 particles
+      initialParticles.push({
+        id: i,
+        size: Math.floor(Math.random() * 30) + 10, // Random size between 10-40px
+        top: Math.random() * 100, // Random top position 0-100%
+        left: Math.random() * 100, // Random left position 0-100%
+        duration: Math.floor(Math.random() * 4) + 2, // Even faster: Random duration 2-6s
+        delay: Math.random() * 2, // Even faster: Random delay 0-2s
+        borderRadius: Math.random() > 0.5 ? '50%' : Math.random() > 0.5 ? '0' : '10px',
+        opacity: Math.random() * 0.5 + 0.5, // Random opacity 0.5-1
+        // Add movement direction properties
+        xDirection: Math.random() > 0.5 ? 1 : -1, // Horizontal direction
+        yDirection: Math.random() > 0.5 ? 1 : -1  // Vertical direction
+      });
+    }
+    setParticles(initialParticles);
+  }, []);
+
   return (
     <div className="animated-header">
       <div className="hero-content">
@@ -23,16 +46,26 @@ const AnimatedBackground = () => {
           <button type="submit" className="search-button">Search</button>
         </div>
       </div>
-      <div className="particle particle-1"></div>
-      <div className="particle particle-2"></div>
-      <div className="particle particle-3"></div>
-      <div className="particle particle-4"></div>
-      <div className="particle particle-5"></div>
-      <div className="particle particle-6"></div>
-      <div className="particle particle-7"></div>
-      <div className="particle particle-8"></div>
-      <div className="particle particle-9"></div>
-      <div className="particle particle-10"></div>
+      
+      {/* Dynamically generated floating particles */}
+      {particles.map((particle) => (
+        <div
+          key={particle.id}
+          className="particle"
+          style={{
+            width: `${particle.size}px`,
+            height: `${particle.size}px`,
+            top: `${particle.top}%`,
+            left: `${particle.left}%`,
+            animationDuration: `${particle.duration}s`,
+            animationDelay: `${particle.delay}s`,
+            borderRadius: particle.borderRadius,
+            opacity: particle.opacity,
+            background: `rgba(255, 255, 255, ${particle.opacity})`,
+            boxShadow: `0 0 ${10 + particle.size/2}px rgba(255, 255, 255, ${particle.opacity * 0.7})`
+          }}
+        />
+      ))}
     </div>
   );
 };

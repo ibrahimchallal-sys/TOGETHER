@@ -11,7 +11,9 @@ const RobotPasswordInput = ({
   confirmPasswordValue, 
   showRobotOnly,
   showPassword: controlledShowPassword,
-  onTogglePassword
+  onTogglePassword,
+  placeholder, // Added placeholder prop
+  confirmPlaceholder // Added confirmPlaceholder prop
 }) => {
   // Use controlled state if provided, otherwise use internal state
   const isControlled = controlledShowPassword !== undefined;
@@ -118,8 +120,8 @@ const RobotPasswordInput = ({
           onChange={handleInputChange}
           className="auth-input black-text"
           required={required}
+          placeholder={placeholder || "Password"} // Use placeholder prop
         />
-        <label htmlFor={id} className="auth-label">Password</label>
       </div>
 
       {confirmPassword && (
@@ -132,8 +134,8 @@ const RobotPasswordInput = ({
             onChange={handleInputChange}
             className="auth-input black-text"
             required={required}
+            placeholder={confirmPlaceholder || "Confirm Password"} // Use confirmPlaceholder prop
           />
-          <label htmlFor={confirmPassword} className="auth-label">Confirm Password</label>
         </div>
       )}
 
